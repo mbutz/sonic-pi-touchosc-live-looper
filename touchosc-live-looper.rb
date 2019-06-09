@@ -66,9 +66,9 @@
 ###################################################################################
 
 # IP of Device running TouchOSC
-set :ip, "192.168.42.129"
+set :ip, "[INSERT IP HERE]"
 # Port configured on device running TouchOSC
-set :port, 9000
+set :port, [INSERT PORT NUMBER HERE]
 use_osc get(:ip), get(:port)
 
 set :my_bpm, 120 # set BPM
@@ -166,7 +166,7 @@ live_loop :touchosc_multis do
   seg   = parse_osc adr
   label = seg[2].to_s + "_" + seg[3].to_s + "_" + seg[4].to_s + "_" + seg[5].to_s
   set label.to_sym, data[0]
-  
+
   if seg[2].to_s == "fb"
     a = line 0.0, 1.45, steps: 10, inclusive: true
     a = [0.0, 0.35, 0.7, 0.8, 0.9, 1.05, 1.15, 1.25, 1.35, 1.45]
@@ -215,7 +215,7 @@ live_loop :touchosc_track_settings do
   seg   = parse_osc adr
   label = seg[2].to_s + seg[3].to_s + "_" + seg[4].to_s
   set label.to_sym, data[0]
-  
+
   # control ...
   if seg[4].to_s == "amp" || "lpf" || "hpf"
     ctrl = ("ctrl_" + seg[2].to_s + seg[3].to_s).to_sym # ctrl_t1
