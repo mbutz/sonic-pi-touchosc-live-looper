@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is an application to capture and loop sound with Sonic Pi; recording and playback will be triggered and controlled with a [touchosc](https://hexler.net/docs/touchosc) interface. The sound is captured from the soundcard with the `live_audio`-functionality of Sonic Pi. The touchosc layout should on a smartphone as well as any other tablet device where touchosc is running.
+This is an application to capture and loop sound with Sonic Pi; recording and playback will be triggered and controlled with a [touchosc](https://hexler.net/docs/touchosc) interface. The sound is captured from the soundcard with the `live_audio`-functionality of Sonic Pi. The touchosc layout should work on a smartphone as well as any other tablet device where touchosc is running.
 
 The idea behind it: If you want to play with Sonic Pi together with other musicians you can capture incomming sound, loop it and have some basic playback controls. I wanted to have an external controller so that I can do the recording and playback control of these captured loops without having to code. The (live) coding part is reserved for additional sounds and the manipulation of the recorded sounds.
 
@@ -12,7 +12,7 @@ The idea behind it: If you want to play with Sonic Pi together with other musici
 
 1. **Metronome Control**: The metronome is initially switched on; as soon as you have triggered recording one of the tracks, the metronome will start to count the respective cycle (e. g. 8 beats) stressing the first beat. You can deactivate it completely by pushing the button below the metronome volume fader (No. 1).
 2. **Record Tracks**: You have 4 tracks (or loops) available (No. 2). Once you have selected one, it will recording as soon as a new loops starts (depending on the configured track length for the track you have chosen to record; the length is indicated in beats on the recording buttons).
-3. **Play Trachs**: Use the green buttons to toggle track replay and set the volume with the track faders (No. 3).
+3. **Play Tracks**: Use the green buttons to toggle track replay and set the volume with the track faders (No. 3).
 4. **Low- and Highpass filters** For each track there is a low- (No. 4) and a hiphpass (No. 5) filter available.
 5. **Feedback Loop**: The feedback loop (No. 6) is recording continuously: the live sound is fed back to the recording. There are 10 possible steps: the first step disables the loop; the next steps (buttons) continually inclease the fading length by incleasing the volume with which the loop will be (re-)recorded each run.
 
@@ -48,7 +48,7 @@ In cycle 4 `:play_t1` will replay the recorded track1 if `t[1]_play` is true (= 
 
 ## Components
 
-Only one file: `touchosc-live-looper.rb`
+The script `touchosc-live-looper.rb` and of course the TouchOSC interface description `live-looper.touchosc`.
 
 ## Setup
 
@@ -96,9 +96,3 @@ end
 ```
 
 Note: The path syntax is for Linux. You will have to adjust the path if working with Windows or MacOSX.
-
-## TODOs
-
-Less redundant code: The code could be much shorter and less redundant if I used functions at the appropriate places. I have not found the time to do that.
-
-Latency: I think the `live looper` shows a latency which I could not track down yet. I'd appreciate some feedback on this if someone has an idea where this comes from and how it could be resolved.
