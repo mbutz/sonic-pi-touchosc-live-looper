@@ -18,7 +18,7 @@
 # Live Looper Concept and Logic ##################################################################
 #
 # There are 2 live_loop types constantly running in parallel once you have started this script:
-# play_track[n] and record_track[n]; length is set by :t[n]_len in the configuration section.
+# play_t[n] and record_t[n]; length is set by :t[n]_len in the configuration section.
 # These live_loops will be generated dynamically: if you set :track_conf[[...],[...]] you will
 # get 2 tracks with 2 live_loops per track; you can configure as much tracks as you want. Note
 # that for full functionality you'll need two midi toggles (play/record) and 3 rotaries (volume,
@@ -38,7 +38,7 @@
 #
 # key: - = 1 beat; ->1 = first run; x = some event (e. g. midi toggle or cue/sync)
 #
-# :play_track1
+# :play_t1
 #  ->1                       ->2                       ->3                     ->4
 # | -  -  -  -  -  -  -  -  | -  -  -  -  -  -  -  -  | -  -  -  -  -  -  -  - | - play recorded
 #            x              x                         x                            sample...
@@ -46,7 +46,7 @@
 #                           2. metronom signal in-    stop extra metronom signal
 #                              dicating recording:
 #                              "1...2...3.+.4..+"
-#  :record_track1
+#  :record_t1
 # ->1                       ->2                       ->3                      ->4
 # | -  -  -  -  -  -  -  -  | -  -  -  -  -  -  -  -  | -  -  -  -  -  -  -  - | - just sleep...
 #                           x                         x                       x
@@ -56,8 +56,8 @@
 #                                                     |                       |
 #                                                [if controller accepts midi feedback]
 #
-# In cycle 4 :play_track1 will replay the recorded track1 if t[1]_play # is true (= associated
-# controller button 'on') and # :record_track1 will just sleep.
+# In cycle 4 :play_t1 will replay the recorded track1 if t[1]_play # is true (= associated
+# controller button 'on') and # :record_t1 will just sleep.
 #
 ##################################################################################################
 
@@ -267,8 +267,8 @@ end
 # -----------------------------------------------------------------#
 #
 # All tracks can be addressed for further manipulation via:
-# 'sample "~/.sonic-pi/store/default/cached_samples/track[1..4].wav"' resp.
-# Synchronisation of all additional live_loops with: sync: :play_track1[..4]
+# 'sample "~/.sonic-pi/store/default/cached_samples/t[1..4].wav"' resp.
+# Synchronisation of all additional live_loops with: sync: :play_t1[..4]
 
 # Dynamically builds as much play back live_loops as configurated
 # if recording toggle true:
