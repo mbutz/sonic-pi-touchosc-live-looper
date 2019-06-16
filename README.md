@@ -4,6 +4,10 @@
 
 This is an application to capture and loop sound with Sonic Pi; recording and playback will be triggered and controlled with a [touchosc](https://hexler.net/docs/touchosc) interface. The sound is captured from the soundcard with the `live_audio`-functionality of Sonic Pi. The touchosc layout should work on a smartphone as well as any other tablet device where touchosc is running.
 
+See a short demontration on Youtube:
+
+https://www.youtube.com/watch?v=jGh0rPZZrvg
+
 The idea behind it: If you want to play with Sonic Pi together with other musicians you can capture incomming sound, loop it and have some basic playback controls. I wanted to have an external controller so that I can do the recording and playback control of these captured loops without having to code. The (live) coding part is reserved for additional sounds and the manipulation of the recorded sounds.
 
 ## TouchOSC-Interface and Features
